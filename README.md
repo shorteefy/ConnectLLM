@@ -103,6 +103,12 @@ This project is built with:
 
 ## 📝 API Usage
 
+The application supports 4 models now:
+- gpt-4o-mini
+- gpt-4o
+- o3-mini
+- o1-mini
+
 The application interacts with:
 
 - **OpenAI API**: For generating AI responses
