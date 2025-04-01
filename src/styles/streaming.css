@@ -1,0 +1,147 @@
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.streaming-cursor {
+  display: inline-block;
+  width: 0.6em;
+  height: 1.2em;
+  background-color: currentColor;
+  margin-left: 2px;
+  vertical-align: text-bottom;
+  animation: blink 1s step-end infinite;
+}
+
+.dark .streaming-cursor {
+  background-color: #e0e0e0;
+}
+
+/* Add smooth fading for content updates */
+.markdown-wrapper {
+  transition: opacity 0.05s ease-in-out;
+}
+
+/* Optimize rendering performance */
+.prose {
+  contain: content;
+}
+
+/* Mobile responsive styles */
+@media (max-width: 640px) {
+  .prose {
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+  
+  .streaming-cursor {
+    height: 1em;
+  }
+  
+  /* Fix for long model names in split view */
+  .truncate {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+  }
+  
+  /* Enhance settings sheet on mobile */
+  .shadow-sm {
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  }
+  
+  /* Improve readability on mobile */
+  .text-xs {
+    font-size: 0.7rem;
+  }
+  
+  /* Card styling for the settings */
+  .card {
+    border-radius: 0.5rem;
+    overflow: hidden;
+  }
+  
+  /* Split view mobile optimizations */
+  .flex-col .bg-gray-200 div {
+    padding: 0.5rem 0.25rem;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .prose pre {
+    margin: 1em -1em;
+    border-radius: 0;
+    font-size: 0.85rem;
+  }
+  
+  .prose blockquote {
+    margin-left: 0.5em;
+    margin-right: 0.5em;
+  }
+  
+  /* Extra compact styling for very small screens */
+  .p-4 {
+    padding: 0.75rem;
+  }
+  
+  .space-y-4 > * + * {
+    margin-top: 0.75rem;
+  }
+  
+  /* Make slider more touchable on mobile */
+  .slider {
+    height: 2rem;
+  }
+  
+  /* Fix for split view mode in very small screens */
+  .bg-gray-200 .truncate {
+    font-size: 0.85rem;
+  }
+  
+  /* Ensure model names don't overflow */
+  .truncate.max-w-[120px] {
+    max-width: 110px !important;
+  }
+  
+  /* Tabs fixes for mobile */
+  [data-state=active] {
+    font-weight: 500;
+  }
+}
+
+/* Split view tablet/mobile optimizations */
+@media (max-width: 768px) {
+  /* Fix model name width in split view */
+  .bg-gray-200 .truncate {
+    max-width: 100%;
+    padding: 0.5rem 0.25rem;
+  }
+  
+  /* Better transitions for mobile tab switching */
+  .transition-transform {
+    transition-timing-function: ease-in-out;
+  }
+  
+  /* Ensure content doesn't overflow in mobile view */
+  .overflow-y-auto {
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  /* TabsList styling */
+  .tabs-list {
+    background-color: rgba(229, 231, 235, 1);
+    padding: 0;
+    height: auto;
+  }
+  
+  /* Fix horizontal overflow in mobile tabs */
+  .tabs-content {
+    margin: 0;
+    height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+}
